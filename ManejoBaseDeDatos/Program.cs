@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.SqlClient;
 
 namespace ManejoBaseDeDatos
 {
@@ -10,7 +11,12 @@ namespace ManejoBaseDeDatos
             conectandonos();
         }
         public static void conectandonos() {
-            string cadenaConexion = @"Server=192.168.1.253;DataBase=Instituto X;User=sa;";// lo normal: .\SQLDEVELOPERCQ
+            string cadenaConexion = @"Server=192.168.1.253;DataBase=Instituto X;User=sa;password=123456";// lo normal: .\SQLDEVELOPERCQ
+            var con = new SqlConnection(cadenaConexion);
+            con.Open();
+            Console.WriteLine("Conexión exitosa");
+            con.Close();
+
         }
     }
 }
